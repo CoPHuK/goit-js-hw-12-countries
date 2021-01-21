@@ -1,20 +1,18 @@
 import debounce from 'lodash.debounce';
+import fetchCountries  from './fetchCountries'
 
 const inputRef = document.querySelector("#countryInput");
 
 
-function logi(val) { 
-    const url = `https://restcountries.eu/rest/v2/name/${val}`;
-    console.log(url);
-    console.log(val);
-  return fetch(url).then(response => response.json())
-}
-inputRef.addEventListener('input', debounce(searching, 5000))
+inputRef.addEventListener('input', debounce(searching, 2000))
 
 
 function searching(event) {
     event.preventDefault()
     let name = inputRef.value
-    console.log(name);
-   logi(name).then(data => console.dir(data))
+     console.log(name);
+    fetchCountries(name).then(({ data }) => (console.log(data.capital)) )
 } 
+
+
+
