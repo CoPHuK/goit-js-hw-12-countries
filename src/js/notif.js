@@ -5,8 +5,16 @@ import '@pnotify/core/dist/Material.css';
 const { alert, notice, info, success, error } = require('@pnotify/core');
 
 function showNotificationError() {
-  info({
-    text: "Too many matches found. Please enter a more specific query! "
+  
+  error({
+    text: "Input Error. Plz enter correct countrie name"
   });
 }
-export default {showNotificationError};
+
+function showNotificationAlert() {
+  alert({
+    text: "Too many matches found. Please enter a more specific query! "
+  });
+  
+}
+export default { showNotificationError, showNotificationAlert};

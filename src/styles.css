@@ -1,6 +1,15 @@
 .flag {
-  float: right;
+  float: left;
+  width: 320px;
+  height: 280px;
 }
-p {
+
+.block {
   display: flex;
+}
+input {
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 500px;
+  height: 30px;
 }

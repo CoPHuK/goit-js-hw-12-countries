@@ -1,25 +1,17 @@
 import debounce from 'lodash.debounce';
 import fetchCountries from './fetchCountries'
 import counriesList from './coutriesList'
-
-const listRef=document.querySelector('.infoBlock')
-
-const inputRef = document.querySelector("#countryInput");
+import refs from './refs'
+import notify from './notif'
 
 
-inputRef.addEventListener('input', debounce(searching, 2000))
+refs.inputRef.addEventListener('input', debounce(searching, 2000))
 
 
 function searching(event) {
     event.preventDefault()
-    let name = inputRef.value
-    console.log(name);
-    fetchCountries(name).then(counriesList)
+    refs.listRef.innerHTML = "";
+    let name = refs.inputRef.value
+    fetchCountries(name).then(counriesList).catch(notify.showNotificationError)
+    refs.inputRef.value = "";
 }
-
-
-function kil(countries) { 
- 
-}
-
-
