@@ -5,7 +5,7 @@ import refs from './refs'
 import notify from './notif'
 
 
-refs.inputRef.addEventListener('input', debounce(searching, 2000))
+refs.inputRef.addEventListener('input', debounce(searching, 500))
 
 
 function searching(event) {
