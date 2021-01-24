@@ -10,8 +10,12 @@ refs.inputRef.addEventListener('input', debounce(searching, 2000))
 
 function searching(event) {
     event.preventDefault()
-    refs.listRef.innerHTML = "";
-    let name = refs.inputRef.value
-    fetchCountries(name).then(counriesList).catch(notify.showNotificationError)
-    refs.inputRef.value = "";
+      let name = refs.inputRef.value
+    if (!name) {
+        return
+    }
+    else {
+        refs.listRef.innerHTML = "";
+        fetchCountries(name).then(counriesList).catch(notify.showNotificationError)
+    }
 }
